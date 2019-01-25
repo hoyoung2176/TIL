@@ -1,0 +1,28 @@
+body {
+    height : 10000px;
+    font-family: 'Nanum Pen Script', cursive;
+}
+.section {
+    height: 350px;
+    background: url('depositphotos_48037795-stock-photo-studio-background.jpg') center no-repeat; 
+    background-size: cover;
+    max-width: 100vw;
+}
+h2 {
+    line-height: 350px;
+    color: dark;
+    font-family: 'Hi Melody', cursive;
+}
+footer { 
+    display: block;
+    height: 50px;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    background-color: darkgrey;
+    
+}
+.items {
+    align-self: center;
+
+    
+}
