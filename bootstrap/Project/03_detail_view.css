@@ -1,5 +1,4 @@
 body {
-    height : 10000px;
     font-family: 'Nanum Pen Script', cursive;
 }
 .section {
@@ -24,17 +23,15 @@ footer {
 
 .container {
     display: flex;
+    align-items: center
 }
 
-.subtitle {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
 
 h3 {
     text-align: center;
-    text-decoration: underline;
     border-width: 70px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .card {
