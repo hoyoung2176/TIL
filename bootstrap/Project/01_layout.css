@@ -1,5 +1,4 @@
 body {
-    height : 10000px;
     font-family: 'Nanum Pen Script', cursive;
 }
 .section {
@@ -19,10 +18,5 @@ footer {
     padding-right: 3rem;
     padding-left: 3rem;
     background-color: darkgrey;
-    
-}
-.items {
-    align-self: center;
-
     
 }
