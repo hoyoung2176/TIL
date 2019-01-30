@@ -1,12 +1,26 @@
+
 body {
     font-family: 'Nanum Pen Script', cursive;
 }
-.section {
-    height: 350px;
-    background: url('depositphotos_48037795-stock-photo-studio-background.jpg') center no-repeat; 
-    background-size: cover;
-    max-width: 100vw;
+
+
+a, a:active, a:hover, a:visited {
+    color: inherit;
+    text-decoration: none;
 }
+header {
+    height: 350px;
+    background-image: url('depositphotos_48037795-stock-photo-studio-background.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: gray;
+    background-blend-mode: screen
+}
+
+header:hover {
+    background-blend-mode: unset;
+}
+
 h2 {
     line-height: 350px;
     color: dark;
@@ -23,15 +37,15 @@ footer {
 
 .container {
     display: flex;
-    align-items: center
 }
 
+.subtitle {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
 
 h3 {
     text-align: center;
-    border-width: 70px;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
 }
 
 .card {
