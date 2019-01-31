@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style type="text/css">
+        .l-wrap--index {
+            background: linear-gradient(52deg, #5383e8, #3991ef 31%, #3892f0 32%, #3594f1 36%, #00b2ff);
+        }
+
+        .l-wrap {
+            min-width: 1080px;
+            min-height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .l-menu {
+            background: #1d2e51;
+        }
+
+        ul,
+        menu,
+        dir {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+
+        .index-logo {
+            padding: 60px 0 53px;
+        }    
+
+        .index-logo img {
+            display: block;
+            max-width: 360px;
+            max-height: 232px;
+            margin: 0 auto;
+        }
+
+        }
+
+        .summoner-search-form {
+            position: relative;
+            width: 624px;
+            height: 50px;
+            justify-content:center;
+            border-radius: 2px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="l-wrap--index l-wrap">
+        <ul class="nav l-menu">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">홈</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/champion/statistics">챔피언 분석</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/statistics/">통계</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#/ranking/">랭킹</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/spectate/">프로관전</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://talk.op.gg/s/lol">커뮤니티</a>
+            </li>
+        </ul>
+
+        <div class="container">
+            <div class="index-logo ">
+                <img src="https://attach.s.op.gg/logo/20190128090241.bcb4fa0f06c3a9deea6dc1798ce6ee5a.PNG" title="Awaken" alt="OP.GG Logo (Awaken)" class="Image">
+            </div>
+        </div>
+        
+        <form class="summoner-search-form d-flex" action="/opgg_result" target="_blank">
+            <input type="text" name="userName" />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+
+</html>
