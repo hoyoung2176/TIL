@@ -4,6 +4,8 @@
 <head>
     <!--block 태그는 파생된 템플릿이 변경할 수 있는 항목을 정의합니다.-->
     {% block head %}
+        <!--static 폴더안에 파비콘이미지 가져옴-->
+        <link rel="icon" href="{{ url_for('static', filename='favicon.png' ) }}" type="image/png" />
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
