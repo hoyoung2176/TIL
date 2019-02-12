@@ -1,54 +1,72 @@
 #선행조건을 리스트를 이용해 스택을 쌓아서 만든다.
 import sys
-sys.stdin = open("작업순서.txt")
-
+# sys.stdin = open("작업순서.txt")
+sys.stdin = open("test.txt")
 T = 1
 
-# def push(item):
-#     ans.append(item)
-#
-# def pop():
-#     if len(ans) == 0:
-#         return
-#     else:
-#         return ans.pop(-1)
-#
+def pop():
+    if len(stack) == 0:
+        print("Stack is Empty!")
+        return
+    else:
+        return stack.pop(-1)
+
+# DPS_route로 경로 찾기
 def DPS_route(S):
-    global E, visited, test, V, G
-    for k in range(V + 1):
-        if visited[k] == 0 and test[S][k] == 1 and test:
-            visited[k] = 1
-            DFS_route(k)
+    global E, visited, test, V, stack, x, y
+    stack.append(S)
+
+    # test>1이면 선행조건이 있으므로 새로운 시작점 찾기
+    if max(test[S]) > 1:
+        start()
+
+    else:
+        for k in range(1, V + 1):
+            if k in y and visited[k] == 0 and test[k][S] == 1:
+                visited[k] = 1
+                test[k][S] -= 1
+
+                DPS_route(k)
+
+
+#시작점 찾기
+def start():
+    global test, x, y
+    for S in range(1, len(test)):
+        #시작점 test[S] == 0 이면서 test[x][S] == 0인 존재를 예외처리
+        if S in y and max(test[S]) == 0:
+            return DPS_route(S)
+
 
 
 for tc in range(T):
     V, E = map(int, input().split())
     data = list(map(int, input().split()))
     test = [[0 for _ in range(V+1)] for _ in range(V+1)]
+
+    #x가 입력 y가 출력
     x = []
     y = []
     visited = [0 for _ in range(V+1)]
+    stack=[]
+    a = [0]
+
+
+    #인접행렬
     for j in range(len(data)):
         if j % 2:
             x.append(data[j])
         else:
             y.append(data[j])
-    for i in x:
-        for j in y:
-            test[i][j] = 1
 
 
-    #스타트지점 S
+    for i in range(len(x)):
+        test[x[i]][y[i]] = 1
 
-    DPS_route()
+    #스타트지점 S 찾기
+    start()
+    print("#{}".format(tc + 1), end=" ")
+    for v in range(len(stack)):
+        print(stack[v], end=" ")
+    print()
 
-
-
-
-    # #
-    # # for j in range(len(G)):
-    # #     if S[j] not in ans:
-    # #         pop(S[j])
-    #
-    #
-    # print("#{} {}".format(tc + 1, data))
