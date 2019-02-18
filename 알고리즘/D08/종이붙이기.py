@@ -4,6 +4,7 @@ sys.stdin = open("종이붙이기.txt")
 
 T = int(input())
 
+#재귀함수를 통해 확인
 def paper(N):
     if N == 0:
         return 1
