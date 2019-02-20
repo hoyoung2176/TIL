@@ -11,8 +11,11 @@ def battle(a, b):
     elif lose_dict[a[1]] == b[1]:
         return b
 
-def gumsa(data):
+def gumsa(dict_data, low, high):
     global result
+    data = []
+    for k in range(low, high+1):
+        data += (dict_data[k],)
     stack = []
     i = 0
     if len(data) == 1:
@@ -39,40 +42,18 @@ def gumsa(data):
         #     return gumsa(result)
 
 def gruop(dict_data, low, high):
-    # global result
-    # if len(dict_data) > 2:
-    #     if len(dict_data) % 2:
-    #         group_01 = dict_data[0:len(dict_data) // 2+1]
-    #         group_02 = dict_data[len(dict_data) // 2+1: len(dict_data)]
-    #     else:
-    #         group_01 = dict_data[0:len(dict_data)//2]
-    #         group_02 = dict_data[len(dict_data)// 2 : len(dict_data)]
-    #     gruop(group_01)
-    #     gruop(group_02)
-    # else:
-    #     gumsa(dict_data)
-    #
-    # if len(result) >= 2:
-    #     data_01 = result
-    #     result = []
-    #     gruop(data_01)
-    # else:
-    #     return result
-#     if high > 2:
-#         if high % 2:
-#             partition(a, low, high)
-#             pivot = high // 2 + 1
-#             gruop(dict_data, low, pivot - 1)
-#             gruop(dict_data, pivot + 1, high)
-#         else:
-#             pivot = high // 2
-#             gruop(dict_data, low, pivot-1)
-#             gruop(dict_data, pivot+1, high)
-#     else:
-#         gumsa(dict_data)
-#
-# def partition(a, low, high):
+    #위치값만 변하게, low, high만 바꾼다.
+    global result
+    if (high - low) > 2:
+        low_01, high_01 = (high)//2, (high//2-1)
+        gruop(dict_data, low, high_01)
+        gruop(dict_data, low_01, high)
 
+    elif (high - low) == 2:
+        gumsa(dict_data, low, high-1)
+
+    elif (high - low) == 1:
+        result += dict_data[low]
 
 T = int(input())
 for tc in range(T):
@@ -81,6 +62,10 @@ for tc in range(T):
     dict_data = list(enumerate(data))
     lose_dict = {'1' : '2', '2' : '3', '3' : '1'} #패배관계 딕셔너리 표현
     result = []
-    # print(gruop(dict_data))
-
-    print("#{} {}".format(tc+1, gruop(dict_data, 0, N)[0][0]+1))
+    gruop(dict_data, 0, len(dict_data))
+    ans = result
+    while len(ans) > 1:
+        ans = result
+        result = []
+        gruop(ans, 0, len(ans)-1)
+    print("#{} {}".format(tc+1, ans))
