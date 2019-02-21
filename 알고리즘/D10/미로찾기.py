@@ -8,7 +8,7 @@ def is_wall(new_x, new_y):
         return False
     if new_y < 0 or new_y >= N:
         return False
-    if arr[new_y][new_x] == '1':
+    if arr[new_x][new_y] == '1':
         return False
     return True
 
@@ -18,18 +18,18 @@ def start(N):
     for i in range(N):
         for j in range(N):
             if arr[i][j] == '2':
-                y = i
-                x = j
+                x = i
+                y = j
                 return (x, y)
 
 def maze(x,y):
     global arr, visited, flag
     new_x = 0
     new_y = 0
-    visited[y][x] = 1
-    dx = [0, 0, 1, -1]
+    visited[x][y] = 1
+    dx = [0, 0, -1, 1]
     dy = [-1, 1, 0, 0]
-    if arr[y][x] == '3': # 가지치기 하는방법
+    if arr[x][y] == '3': # 가지치기 하는방법
         flag = 1
         return
 
@@ -37,10 +37,8 @@ def maze(x,y):
         for i in range(4):
             new_x = x + dx[i]
             new_y = y + dy[i]
-            if is_wall(new_x, new_y) == True and visited[new_y][new_x] == 0:
-                x = new_x
-                y = new_y
-                maze(x,y)
+            if is_wall(new_x, new_y) == True and visited[new_x][new_y] == 0:
+                maze(new_x, new_y)
 
 T =int(input())
 

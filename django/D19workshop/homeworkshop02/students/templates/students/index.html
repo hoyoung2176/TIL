@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>학생생성</h1>
+    <form action="/students/create/" method='POST'>
+        {% csrf_token %}
+        <label for="name">name : </label>
+        <input type="text" name="name"/><br>
+        
+        <label for="email">email</label>
+        <input type="email" name="email"/><br>
+        
+        <label for="birthday">birthday</label>
+        <input type="date" name="birthday"/><br>
+        
+        
+        <label for="age">age</label>
+        <input type="text" name="age"/><br>
+        
+        <input type="submit" value="Submit"/><br>
+    </form>
+    <h1>학생목록</h1>
+    {% for student in students %}
+        <p>{{ student.name }}</p>
+        <a href="/students/{{ student.pk }}/delete/">[delete]</a>
+        <a href="/students/{{ student.pk }}/edit/">[edit]</a>
+        
+        <br>
+    {% endfor %}
+</body>
+</html>
