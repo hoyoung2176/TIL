@@ -1,8 +1,8 @@
 #선행조건을 리스트를 이용해 스택을 쌓아서 만든다.
 import sys
-sys.stdin = open("작업순서.txt")
-# sys.stdin = open("test.txt")
-T = 10
+# sys.stdin = open("작업순서.txt")
+sys.stdin = open("test.txt")
+T = 1
 
 # DPS_route로 경로 찾기
 def DPS_route():
@@ -21,7 +21,8 @@ def DPS_route():
                 visited[k] -= 1
                 if visited[k] == 0:
                     stack.append(k)
-                # DPS_route(k)
+                else:
+                    DPS_route(k)
             # elif k == V and test[V][S] == 0:
             #     DPS_route(S+1)
 
