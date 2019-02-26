@@ -32,5 +32,5 @@ for tc in range(T):
             if data:
                 oven.append(data.pop(0))
 
-    #오븐에 남은 하나의 인덱스값을 추출한다.
+    #오븐에 남은 하나의 인덱스값을 추출한다. 처음시작이 1이므로 +1하였다.
     print("#{} {}".format(tc+1 ,oven[0][0]+1))
