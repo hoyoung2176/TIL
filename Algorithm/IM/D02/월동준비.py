@@ -3,6 +3,7 @@ sys.stdin = open('월동준비.txt')
 N = int(input())
 food = list(map(int, input().split()))
 
+# 최대합 문제
 
 #멍청한 다람쥐
 cnt_1 = 0
