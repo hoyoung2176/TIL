@@ -1,21 +1,31 @@
 import sys
 sys.stdin = open('숫자맞추기.txt')
+
+def find(r, c):
+    global arr
+    if arr[r][c] == 0:
+        return
+    else:
+        flag = 0
+        for i in range(r+1, N):
+
+            if arr[r][c] == arr[i][c]:
+                arr[i][j] = 0
+                flag = 1
+        if flag == 1:
+            arr[r][c] = 0
 N = int(input())
 arr = [[0 for _ in range(3)] for _ in range(N)]
 ans = [0 for _ in range(N)]
+
+
 for i in range(N):
     arr[i] = list(map(int, input().split()))
 
-for i in range(3):
-    flag = 0
-    for j in range(N-1):
-        for k in range(j+1, N):
-            if arr[j][i] == arr[j][i]:
-                flag = 1
-                break
-            else:
-                ans[i] = arr[j][i]
-        # if flag == 1:
-        #     break
-
-print(ans)
+for i in range(N):
+    for j in range(3):
+        find(i,j)
+#
+for i in range(N):
+    print(sum(arr[i]))
+# print(arr)
