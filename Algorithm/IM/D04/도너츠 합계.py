@@ -26,6 +26,14 @@ def find(r, c):
         r -= 1
         ans += arr[r][c]
     return ans
+
+def check(si, sj):
+    dsum = 0
+    for i in range(K):
+        for j in range(K):
+            if i == 0 or i == K-1 or j == 0 or j == K-1:
+                dsum += arr[i+si][j+sj]
+    return dsum
 N, K = map(int,input().split())
 arr = [[0 for _ in range(N)] for _ in range(N)]
 for i in range(N):
@@ -34,11 +42,10 @@ for i in range(N):
 max_sum = 0
 for i in range(N-K+1):
     for j in range(N-K+1):
-        result = find(i, j - 1)
+        # result = find(i, j - 1)
+        result = check(i, j) # 도넛모양으로 패턴을 만들어서 체크
         if max_sum < result:
             max_sum = result
-
-
 
 print(max_sum)
 
