@@ -1,0 +1,11 @@
+{% extends 'movies/base.html' %}
+{% block body %}
+<h1>영화 목록</h1>
+<hr><br>
+{% for movie in movies %}
+    <a href="{{ movie.pk }}/">{{ movie.title }}</a><br>
+    <img src="{{ movie.poster_url }}"></img>
+    <h2>종합 평점 : {{ movie.score_avg }}</h2>
+    <hr>
+{% endfor %}
+{% endblock %}
