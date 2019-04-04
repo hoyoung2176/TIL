@@ -1,12 +1,14 @@
 #중복순열
 def DFS1(no):
     if no > N:
-        for i in range(N):
+        for i in range(1, N+1):
             print(rec[i], end=" ")
         print()
     for i in range(1, 7):   # 눈
         chk[i] = 1
         rec[no] = i
+        DFS1(no+1)
+
 
 #중복조합
 def rptcomb(no, start):
@@ -59,7 +61,11 @@ chk = [0] * 7
 rec = [0] * N
 perm(0)
 # M = 1 중복 순열
-
+if M == 1:
+    DFS1(0)
 # M = 3 순열
-
+elif M == 3:
+    perm(0)
 # M = 2 중복 조합
+elif M == 2:
+    rptcomb(0)
